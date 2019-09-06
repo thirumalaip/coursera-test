@@ -10,12 +10,21 @@
       
         $scope.checkStatus = function () {
          $scope.message = "";
+         $scope.inputClass = "inputGrey"
             if($scope.lunch){
                 var splitLunch = $scope.lunch.split(',');
-                    if(splitLunch.length > 3){
-                         $scope.message ="Too much";
-                   }else if(splitLunch.length <= 3){
-                         $scope.message ="Enjoy lunch";
+                var splitLunchList = splitLunch.filter(function (element) {
+                    return (element != null && element!='') ;
+              });
+
+                    if(splitLunchList.length > 3){
+                         $scope.message ="Too much!";
+                         $scope.messageClass="messageRed";
+                         $scope.inputClass="InputRed";
+                   }else if(splitLunchList.length <= 3){
+                         $scope.message ="Enjoy";
+                         $scope.messageClass="messageGreen";
+                         $scope.inputClass="InputGreen";
                  }
        
             } else {
