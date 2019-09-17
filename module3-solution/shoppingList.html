@@ -1,0 +1,9 @@
+<ol>
+  <li ng-repeat="item in menu.foundItems">
+    <h1>{{item.name}}</h1>
+    <h3>{{item.short_name}}</h3>
+    <p>{{item.description}}</p>
+    <button ng-click="menu.onRemove({index: $index})" class="btn btn-lg btn-primary">Remove Item</button>
+  </li>
+</ol>
+<div class="error" ng-show="menu.onEmpty">{{menu.onEmpty}}</div>

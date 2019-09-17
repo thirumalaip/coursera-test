@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app='NarrowItDownApp'>
+
+<head>
+  <meta charset="utf-8">
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/styles.css">
+  <title>Directives with Isolate Scope and '&'</title>
+</head>
+
+<body>
+  <div ng-controller='NarrowItDownController as menu' class="container">
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+  <div class="searchContainer">  <div class="form-group">
+      <input type="text" placeholder="search term" ng-model="queryText" class="form-control">
+    </div>
+    <div class="form-group narrow-button">
+      <button class="btn btn-primary" ng-click="menu.narrowitdown(queryText)">Narrow It Down For Me!</button>
+    </div>
+</div>
+    <div class="">
+    <found-items found-items="menu.found" on-empty="menu.message" on-remove="menu.removeMenuItem(index)"></found-items>
+    
+  </div>
+</body>
+
+</html>
