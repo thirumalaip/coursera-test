@@ -1,0 +1,46 @@
+<div class="row">
+        <div class="col-sm-6 col-sm-offset-1">
+            <h1>Sign Up</h1>
+            <form name="signup_form">
+    
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" name="first_name" ng-model="signupCtrl.first_name" required minlength="2">
+                <span class="help-block white-color" ng-if="signup_form.first_name.$touched && signup_form.first_name.$error.required">First name is required</span>
+                <span class="help-block white-color" ng-if="signup_form.first_name.$touched && signup_form.first_name.$error.minlength">First name should be at least 2 characters long</span>
+              </div>
+    
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" name="last_name" ng-model="signupCtrl.last_name" required minlength="2">
+                <span class="help-block white-color" ng-if="signup_form.last_name.$touched && signup_form.last_name.$error.required">Last name is required</span>
+                <span class="help-block white-color" ng-if="signup_form.last_name.$touched && signup_form.last_name.$error.minlength">Last name should be at least 2 characters long</span>
+              </div>
+    
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" class="form-control" name="email_address" ng-model="signupCtrl.email_address" required >
+                <span class="help-block white-color" ng-if="signup_form.email_address.$touched && signup_form.email_address.$error.required">Email address is required</span>
+                <span class="help-block white-color" ng-if="signup_form.email_address.$touched && signup_form.email_address.$error.email">Enter a valid email address</span>
+              </div>
+    
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="number" class="form-control" name="phone_number" ng-model="signupCtrl.phone_number" required minlength="6" maxlength="12">
+                <span class="help-block white-color" ng-if="signup_form.phone_number.$touched && signup_form.phone_number.$error.required">Phone number is required</span>
+                <span class="help-block white-color" ng-if="signup_form.phone_number.$touched && (signup_form.phone_number.$error.minlength || signup_form.phone_number.$error.maxlength)">Phone number should be 6-12 digitals long</span>
+                <span class="help-block white-color" ng-if="signup_form.phone_number.$error.number">Phone number should only be digits</span>
+              </div>
+    
+              <div class="form-group">
+                <label>Favorite Dish</label>
+                <input type="text" class="form-control" name="favorite_dish" ng-model="signupCtrl.favorite_dish" required>
+                <span class="help-block white-color" ng-if="signup_form.favorite_dish.$touched && signup_form.favorite_dish.$error.required">Favorite dish is required. Valid example: C1</span>
+                <span class="help-block white-color" ng-if="signupCtrl.notFound" ng-focus="signupCtrl.notFound = false">No such menu number exists. Valid example: V1</span>
+              </div>
+    
+              <button type="submit" class="btn btn-default" ng-disabled="signup_form.$invalid" ng-click="signupCtrl.signup()">Submit</button>
+            </form>
+            <div class="alert" ng-if="signupCtrl.userInfoSaved">User info saved!</div>
+        </div>
+    </div>

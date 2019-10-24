@@ -1,0 +1,38 @@
+<div class="row" ng-if="myInfoCtrl.userInfo">
+        <div class="col-md-6" style="padding-left: 40px">
+            <table class="table">
+                <tr>
+                    <td>First Name: </td>
+                    <td>{{myInfoCtrl.userInfo.first_name}}</td>
+                </tr>
+                <tr>
+                    <td>Last Name: </td>
+                    <td>{{myInfoCtrl.userInfo.last_name}}</td>
+                </tr>
+                <tr>
+                    <td>Email Address: </td>
+                    <td>{{myInfoCtrl.userInfo.email_address}}</td>
+                </tr>
+                <tr>
+                    <td>Phone Number: </td>
+                    <td>{{myInfoCtrl.userInfo.phone_number}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-4" style="padding-left: 40px">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" ng-src="images/menu/{{myInfoCtrl.userInfo.favorite_dish.category_short_name}}/{{myInfoCtrl.userInfo.favorite_dish.category_short_name}}.jpg" />
+              <div class="card-body">
+                <h5 class="card-title">{{myInfoCtrl.userInfo.favorite_dish.name}}</h5>
+                <p class="card-text">{{myInfoCtrl.userInfo.favorite_dish.description}}</p>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="!myInfoCtrl.userInfo">
+        <div class="col-md-12 text-center" style="padding-left: 40px;">
+            <br /><br /><br /><br /><br /><br /><br /><br />
+            Not Signed Up Yet. <a ui-sref="public.signup" style="color: white"><u>Sign up Now!</u></a>
+            <br /><br /><br /><br /><br /><br /><br /><br />
+        </div>
+    </div>
